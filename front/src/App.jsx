@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import DashboardLayout from "./layouts/DashboardLayout";
+import Login from "./pages/Login";
+import Inicio from "./pages/Inicio";
+import Cultivos from "./pages/Cultivos";
+import Animales from "./pages/Animales";
+import Inventario from "./pages/Inventario";
+import Ventas from "./pages/Ventas";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+// Wrapper para rutas protegidas
+function ProtectedRoute({ isAuthenticated }) {
+  return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
 }
 
-export default App
+function App() {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/"
+          element={<Login onLogin={() => setIsAuthenticated(true)} />}
+        />
+
+        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route element={<DashboardLayout />}>
+            <Route path="inicio" element={<Inicio />} />
+            <Route path="cultivos" element={<Cultivos />} />
+            <Route path="animales" element={<Animales />} />
+            <Route path="inventario" element={<Inventario />} />
+            <Route path="ventas" element={<Ventas />} />
+          </Route>
+        </Route>
+
+        <Route path="*"
+          element={<Navigate to={isAuthenticated ? "/inicio" : "/"} replace />}
+        />
+      </Routes>
+
+    </BrowserRouter>
+
+  );
+}
+
+export default App;
