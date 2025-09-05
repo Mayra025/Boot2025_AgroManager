@@ -1,23 +1,30 @@
-require("dotenv").config();
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
+import morgan from "morgan";
+import { connectDB } from "./config/db.js";
+import authRoutes from "./routes/auth.routes.js";
 
 const app = express();
 
-// middlewares
-app.use(cors());
-app.use(express.json());
-
-// rutas simples
-app.get("/", (req, res) => {
-  res.send("API funcionando");
-});
-
-// conectar a Mongo
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB conectado");
-    app.listen(5000, () => console.log("Servidor en http://localhost:5000"));
+// Middlewares
+app.use(
+  cors({
+    origin: process.env.CLIENT_ORIGIN || "http://localhost:5173",
+    credentials: true,
   })
-  .catch((err) => console.error(err));
+);
+app.use(express.json());
+app.use(morgan("dev"));
+
+// Rutas
+app.use("/api/auth", authRoutes);
+
+// Healthcheck
+app.get("/health", (_req, res) => res.json({ ok: true }));
+
+// Start
+const PORT = process.env.PORT || 4000;
+connectDB().then(() => {
+  app.listen(PORT, () => console.log(`API lista en :${PORT}`));
+});

@@ -1,41 +1,28 @@
-import { useNavigate } from "react-router-dom";
+import AuthForm from "../features/auth/AuthForm";
+import Logo from "../components/ui/Logo";
 
-export default function Login({ onLogin }) {
-  const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // 
-    onLogin();           // marca al usuario como autenticado
-    navigate("/inicio"); 
-  };
+export default function Login() {
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-4 w-80 p-6 bg-white rounded shadow"
-      >
-        <h2 className="text-2xl font-bold text-center">Iniciar Sesión</h2>
+    <div className="flex min-h-screen">
+      {/* Lado Izquierdo: Formulario */}
+      <div className="w-full md:w-1/2 flex items-center justify-center bg-white p-8">
+        <div className="w-full max-w-md">
 
-        <input
-          type="email"
-          placeholder="Correo electrónico"
-          className="border p-2 rounded"
-          required
-        />
+          <AuthForm
+          ></AuthForm>
+        </div>
+      </div>
 
-        <input
-          type="password"
-          placeholder="Contraseña"
-          className="border p-2 rounded"
-          required
-        />
-
-        <button className="bg-green-700 text-white py-2 rounded hover:bg-green-800">
-          Entrar
-        </button>
-      </form>
+      {/* Lado Derecho: Imagen/Logo */}
+      <div className="hidden md:flex w-1/2 bg-black items-center justify-center">
+        {/* <img
+          src="/agromanager-banner.png"
+          alt="AgroManager"
+          className="max-w-lg"
+        /> */}
+        <Logo></Logo>
+      </div>
     </div>
   );
 }

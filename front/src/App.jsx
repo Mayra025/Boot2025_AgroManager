@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -8,23 +8,33 @@ import Cultivos from "./pages/Cultivos";
 import Animales from "./pages/Animales";
 import Inventario from "./pages/Inventario";
 import Ventas from "./pages/Ventas";
+import { useAuthStore } from "./features/auth/store/authStore";
+import Registro from "./pages/Registro";
 
 // Wrapper para rutas protegidas
-function ProtectedRoute({ isAuthenticated }) {
+function ProtectedRoute() {
+  const { isAuthenticated, loadUser } = useAuthStore();
+
+  useEffect(() => {
+    loadUser();
+  }, [loadUser]);
+
   return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
 }
 
 function App() {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated } = useAuthStore();
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/"
-          element={<Login onLogin={() => setIsAuthenticated(true)} />}
+          element={<Login />}
         />
+        <Route path="/registro" element={<Registro />} />
 
-        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+
+        <Route element={<ProtectedRoute />}>
           <Route element={<DashboardLayout />}>
             <Route path="inicio" element={<Inicio />} />
             <Route path="cultivos" element={<Cultivos />} />
