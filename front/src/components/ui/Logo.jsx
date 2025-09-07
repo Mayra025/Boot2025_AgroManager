@@ -1,6 +1,6 @@
 import { UserRoundCog } from "lucide-react";
 
-export const Logo = () => {
+export default function Logo() {
   return (
     <div className="py-2.5 flex items-center gap-2 text-center justify-center text-green-700">
 
