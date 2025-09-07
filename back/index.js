@@ -4,6 +4,8 @@ import cors from "cors";
 import morgan from "morgan";
 import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/auth.routes.js";
+import actividadRoutes from "./routes/actividad.routes.js"
+import cultivoRoutes from "./routes/cultivos.routes.js"
 import salesRoutes from "./routes/sales.js";
 import inventoryRoutes from "./routes/inventory.js";
 import animalRoutes from "./routes/animals.js";
@@ -25,6 +27,8 @@ app.use("/api/sales", salesRoutes);
 app.use("/api/inventory", inventoryRoutes);
 app.use("/api/animals", animalRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/actividades", actividadRoutes);
+app.use("/api/cultivos", cultivoRoutes);
 
 // Healthcheck
 app.get("/health", (_req, res) => res.json({ ok: true }));
