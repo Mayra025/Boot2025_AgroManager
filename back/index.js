@@ -4,7 +4,8 @@ import cors from "cors";
 import morgan from "morgan";
 import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/auth.routes.js";
-
+import actividadRoutes from "./routes/actividad.routes.js"
+import cultivoRoutes from "./routes/cultivos.routes.js"
 const app = express();
 
 // Middlewares
@@ -19,6 +20,8 @@ app.use(morgan("dev"));
 
 // Rutas
 app.use("/api/auth", authRoutes);
+app.use("/api/actividades", actividadRoutes);
+app.use("/api/cultivos", cultivoRoutes);
 
 // Healthcheck
 app.get("/health", (_req, res) => res.json({ ok: true }));
