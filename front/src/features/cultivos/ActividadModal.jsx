@@ -12,21 +12,6 @@ export default function ActividadModal({ isOpen, onClose, actividad }) {
     fecha: "",
   })
 
-  // Si estamos editando, precargar datos
-  // useEffect(() => {
-  //   if (actividad) {
-  //     setFormData(actividad)
-  //   } else {
-  //     setFormData({
-  //       titulo: "",
-  //       estado: "Programado",
-  //       cultivo: "",
-  //       parcela: "",
-  //       fecha: new Date().toISOString().split("T")[0],
-  //     })
-  //   }
-  // }, [actividad])
-
   useEffect(() => {
     if (actividad) {
       setFormData({
@@ -41,7 +26,7 @@ export default function ActividadModal({ isOpen, onClose, actividad }) {
         estado: "Programado",
         cultivo: "",
         parcela: "",
-        fecha: new Date().toISOString().split("T")[0], // hoy
+        fecha: new Date().toISOString().split("T")[0], 
       })
     }
   }, [actividad])
