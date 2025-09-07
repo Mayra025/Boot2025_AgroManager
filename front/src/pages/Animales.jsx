@@ -1,9 +1,30 @@
-import AnimalGroups from "../components/layout/AnimalGroups";
+import React, { useEffect, useState } from "react";
+import AnimalGroups from "../components/animals/Animal";
+import { getAnimals, createAnimalGroup } from "../services/animalService";
 
-export default function Animales() {
+const Animales = () => {
+  const [groups, setGroups] = useState([]);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    const data = await getAnimals();
+    setGroups(data);
+  };
+
+  const handleSave = async (groupData) => {
+    await createAnimalGroup(groupData);
+    loadData();
+  };
+
   return (
-    <div className="bg-white p-6 rounded-lg shadow">
-      <AnimalGroups />
-    </div>
+    <AnimalGroups 
+      groups={groups}
+      onAddGroup={handleSave}
+    />
   );
-}   
+};
+
+export default Animales;
