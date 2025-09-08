@@ -3,7 +3,7 @@ Autores:
   - Mayra Pachacama
   - Edison Picuasi
 
-Modulo IV - DevOps
+# Modulo IV - DevOps
 ## Descripción
 AGROMANAGER es una aplicación web completa para la gestión de operaciones agrícolas que permite administrar inventario, controlar grupos de animales, gestionar ventas y monitorear cultivos. La aplicación está construida con el stack MERN (MongoDB, Express.js, React, Node.js) y ofrece una interfaz intuitiva para optimizar las operaciones de fincas y negocios agrícolas.
 ## Tecnologías Utilizadas
