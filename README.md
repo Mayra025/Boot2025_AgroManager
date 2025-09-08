@@ -36,7 +36,7 @@ PORT=5000
 ```
 4. Iniciar el Backend
 ```bash
-npm run dev
+npm run server
 ```
 5. Configurar el Frontend
 ```bash
@@ -45,7 +45,7 @@ npm install
 ```
 6. Iniciar Frontend
 ```bash
-npm run dev
+npm start
 ```
 ## Proceso de Despliegue
 1. Conectar el repositorio de GitHub a Render.
