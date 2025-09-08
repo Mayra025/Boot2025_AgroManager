@@ -1,6 +1,6 @@
 # AgroManager -Sistema de Gestión Agricola
 Autores:
-  - Mayra Pachaman
+  - Mayra Pachacama
   - Edison Picuasi
 
 Modulo IV - DevOps
