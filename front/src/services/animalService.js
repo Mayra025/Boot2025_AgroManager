@@ -8,7 +8,8 @@
 // front/src/services/animalService.js
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/animals";
+// const API_URL = "http://localhost:4000/api/animals";
+const API_URL = "https://agromanage.onrender.com/api/animals";
 
 export const getAnimals = async () => {
   const res = await axios.get(API_URL);

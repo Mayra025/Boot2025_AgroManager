@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:4000/api/auth";
+// const API_URL = "http://localhost:4000/api/auth";
+const API_URL = "https://agromanage.onrender.com/api/auth";
 
 export const loginService = async (email, password) => {
   const res = await fetch(`${API_URL}/login`, {

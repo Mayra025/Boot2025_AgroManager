@@ -1,6 +1,7 @@
 import axios from "axios"
 
-const API_URL = "http://localhost:4000/api/actividades" 
+// const API_URL = "http://localhost:4000/api/actividades" 
+const API_URL = "https://agromanage.onrender.com/api/actividades";
 
 // Obtener todas las actividades
 export const fetchActividades = async () => {

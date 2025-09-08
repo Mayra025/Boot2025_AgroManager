@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/sales";
+// const API_URL = "http://localhost:4000/api/sales";
+const API_URL = "https://agromanage.onrender.com/api/sales";
+
 
 export const getSales = async () => {
   try {

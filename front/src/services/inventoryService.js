@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/api/inventory"; // Cambiado de products a inventory
+// const API_URL = "http://localhost:4000/api/inventory"; // Cambiado de products a inventory
+const API_URL = "https://agromanage.onrender.com/api/inventory";
 
 // Obtener todos los productos
 export const getInventory = async () => {

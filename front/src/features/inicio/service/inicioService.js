@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:4000/api/inicio";
+// const API_BASE = "http://localhost:4000/api/inicio";
+const API_BASE = "https://agromanage.onrender.com/api/inicio";
 
 // Obtener todo el dashboard
 export const getDashboardData = async () => {
