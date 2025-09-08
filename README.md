@@ -57,8 +57,8 @@ En desarrollo local usa npm run dev en front/ y back/
 2. En el código, asegurarse que los fetchs tomen la URL generada para manejar correctamente los CORS.
 3. Configurar un Servicio Web con las siguientes especificaciones.
   - Runtime: Node
-  - Build Command: cd front && npm install && npm run build && cd ../back && npm install
-  - Start Command: node back/index.js
+  - Build Command: npm run build
+  - Start Command: node index.js
   - Añadir las variable de entorno necesarias en el panel de Render
 MONGO_URI → URI Atlas
 CLIENT_ORIGIN → URL frontend Render
