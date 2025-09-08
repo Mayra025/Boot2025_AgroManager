@@ -22,7 +22,7 @@
 1. Clonar el repositorio
 ```bash
 git clone https://github.com/Mayra025/Boot2025_AgroManager.git
-cd BOOT2025_AGROMANAGER
+cd Boot2025_AgroManager
 ```
 2. Configurar el Backend
 ```bash
