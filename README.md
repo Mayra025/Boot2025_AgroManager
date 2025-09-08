@@ -1,4 +1,4 @@
-# AgroManager -Sistema de Gestión Agricola
+# AgroManager - Sistema de Gestión Agricola
 **Autores:**
   - Mayra Pachacama
   - Edison Picuasi
