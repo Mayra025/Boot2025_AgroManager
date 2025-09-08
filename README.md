@@ -48,6 +48,16 @@ npm install
 npm run dev
 ```
 ## Proceso de Despliegue
-
+1. Conectar el repositorio de GitHub a Render.
+2. Configurar un Servicio Web con las siguientes especificaciones.
+  - Runtime: Node
+  - Build Command: npm install
+  - Start Command: node index.js
+  - Añadir las variable de entorno necesarias en el panel de Render
+3. Crear un build de producción: npm run build
+4. Configurar un Sitio Estatico que apunte al directorio front/.
+5. Especificar el directorio de build: dist
+6. Agregar las redirecciones para manejar el routing de React.
 ## Desafios y Soluciones
-
+- Desafío: Las variables de entorno funcionaban localmente pero no en producción.
+- Solución: Verificar y configurar todas las variables necesarias en el panel de Render, incluyendo la conexión a MongoDB Atlas y las URLs correctas para cada servicio.
