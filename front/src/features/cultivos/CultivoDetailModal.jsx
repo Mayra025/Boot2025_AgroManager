@@ -1,8 +1,15 @@
 import { X } from "lucide-react";
-import StatusBadge from "../../components/layout/StatusBadge";
+import StatusBadge from "../../components/actions/StatusBadge";
+import { useActividadStore } from "./store/actividadStore";
 
 const CultivoDetailModal = ({ isOpen, onClose, cultivo }) => {
   if (!isOpen || !cultivo) return null;
+
+  const { actividades } = useActividadStore()
+
+  const actividadesCultivo = actividades.filter(
+    (a) => a.cultivoId === cultivo.id
+  )
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 overflow-y-auto">
@@ -46,16 +53,20 @@ const CultivoDetailModal = ({ isOpen, onClose, cultivo }) => {
         <div>
           <h3 className="font-semibold text-gray-700 mb-3">Actividades</h3>
           <div className="space-y-3">
-            {actividades.map((act, i) => (
-              <div
-                key={i}
-                className="border rounded-lg p-3 bg-white shadow-sm flex flex-col"
-              >
-                <span className="text-sm text-gray-500">{act.fecha}</span>
-                <span className="font-medium text-gray-800">{act.tipo}</span>
-                <span className="text-sm text-gray-600">{act.detalle}</span>
-              </div>
-            ))}
+            {actividadesCultivo.length > 0 ? (
+              actividadesCultivo.map((act) => (
+                <div
+                  key={act.id}
+                  className="border rounded-lg p-3 bg-white shadow-sm flex flex-col"
+                >
+                  <span className="text-sm text-gray-500">{act.fecha}</span>
+                  <span className="font-medium text-gray-800">{act.tipo}</span>
+                  <span className="text-sm text-gray-600">{act.detalle}</span>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-500 text-sm">No hay actividades registradas.</p>
+            )}
           </div>
         </div>
       </div>

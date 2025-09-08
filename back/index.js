@@ -9,6 +9,7 @@ import cultivoRoutes from "./routes/cultivos.routes.js"
 import salesRoutes from "./routes/sales.js";
 import inventoryRoutes from "./routes/inventory.js";
 import animalRoutes from "./routes/animals.js";
+import inicioRoutes from "./routes/inicio.routes.js";
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use("/api/animals", animalRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/actividades", actividadRoutes);
 app.use("/api/cultivos", cultivoRoutes);
+app.use("/api/inicio", inicioRoutes);
 
 // Healthcheck
 app.get("/health", (_req, res) => res.json({ ok: true }));

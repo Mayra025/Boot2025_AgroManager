@@ -1,8 +1,8 @@
 import { Leaf, Users, Package, DollarSign } from "lucide-react";
 import PageHeader from "../components/layout/PageHeader";
-import InfoCard from "../components/layout/InfoCard";
-import ListCard from "../components/layout/ListCard";
-import StatusBadge from "../components/layout/StatusBadge";
+import InfoCard from "../components/cards/InfoCard";
+import ListCard from "../components/cards/ListCard";
+import StatusBadge from "../components/actions/StatusBadge";
 import ProgressBar from "../components/ui/ProgressBar";
 import useInicioStore from "../features/inicio/store/inicioStore";
 import { useEffect } from "react";

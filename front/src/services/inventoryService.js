@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/inventory"; // Cambiado de products a inventory
+const API_URL = "http://localhost:4000/api/inventory"; // Cambiado de products a inventory
 
 // Obtener todos los productos
 export const getInventory = async () => {

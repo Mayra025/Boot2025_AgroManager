@@ -1,5 +1,5 @@
 import { MapPin, Calendar, Droplet } from "lucide-react";
-import StatusBadge from "../../components/layout/StatusBadge";
+import StatusBadge from "../../components/actions/StatusBadge";
 
 const CultivoCard = ({ cultivo, onEdit, onView }) => {
     return (
